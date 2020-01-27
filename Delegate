@@ -1,0 +1,38 @@
+using System;
+
+namespace Delegates
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double amount = UserInput();
+            Converter conv = DollarMoney;
+            Console.WriteLine(conv(amount));
+            conv = EuroMoney;
+            Console.WriteLine(conv(amount));
+
+        }
+
+        public static double UserInput()
+        {
+            Console.Write("Enter an amount in dollar to convert to euro: ");
+            double dollarAmount = Convert.ToDouble(Console.ReadLine());
+            return dollarAmount;
+        }
+
+        public delegate string Converter(double moneyInDollar);
+
+        public static string DollarMoney(double moneyInDollar)
+        {
+            string printDollar = ("Money in dollar: " + moneyInDollar + " dollars");
+            return printDollar;
+        }
+
+        public static string EuroMoney(double moneyInDollar)
+        {
+            string printEuro = ("Conversion in euro: " + moneyInDollar + " euros");
+            return printEuro;
+        }
+    }
+}
