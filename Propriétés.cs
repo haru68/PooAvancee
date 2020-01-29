@@ -15,19 +15,14 @@ namespace Encapsulation
             house.AddDoor(houseDoor);
             room.AddDoor(roomDoor);
             house.AddRoom(room);
+            Console.WriteLine("");
         }
     }
 
     public class House
     {
-        public List<Room> rooms { set; get; }
-        public List<Door> doors { set; get; }
-
-        public House()
-        {
-            rooms = new List<Room>();
-            doors = new List<Door>();
-        }
+        public List<Room> rooms { set; get; } = new List<Room>();
+        public List<Door> doors { set; get; } = new List<Door>();
 
         public void AddDoor(Door door)
         {
@@ -42,15 +37,7 @@ namespace Encapsulation
 
     public class Room
     {
-        public List<Door> doors 
-        {
-            get;
-        }
-
-        public Room()
-        {
-            doors = new List<Door>();
-        }
+        public List<Door> doors { get; } = new List<Door>();
 
         public void AddDoor(Door door)
         {
@@ -60,16 +47,7 @@ namespace Encapsulation
 
     public class Door
     {
-        public bool isOpen 
-        {
-            get;
-            set;
-        }
-
-        public Door()
-        {
-            isOpen = false;
-        }
+        public bool isOpen { get; set; } = false;
 
         public void Open()
         {
